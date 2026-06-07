@@ -1,0 +1,57 @@
+# Maven
+target/
+
+# Eclipse
+.project
+.classpath
+.settings/
+.metadata/
+
+# IntelliJ
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# Reports
+reports/
+
+# Screenshots
+screenshots/
+
+# Test Outputs
+test-output/
+surefire-reports/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Java
+*.class
+
+# Temporary files
+*.tmp
+*.bak
+
+# Selenium generated
+selenium-server-*.jar
+
+# Extent Reports
+*.html
+
+# WebDriver binaries 
+chromedriver*
+geckodriver*
+msedgedriver*
+
+# Environment files
+.env
+
+# Generated screenshots
+*.png
+

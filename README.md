@@ -249,6 +249,15 @@ Uses `@FindBy` annotations and lazy initialization for efficient web element man
 
 ---
 
+## 🎥 Project Demonstration
+
+Watch the complete end-to-end automation execution on YouTube:
+
+[![BlazeDemo Automation Framework Demo](https://img.youtube.com/vi/Bri73L5QHwE/maxresdefault.jpg)](https://youtu.be/Bri73L5QHwE)
+
+🔗 Direct Video Link:
+https://youtu.be/Bri73L5QHwE
+
 ## Author
 
 **Arpan Jana**

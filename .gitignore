@@ -52,6 +52,7 @@ msedgedriver*
 # Environment files
 .env
 
-# Generated screenshots
-*.png
+# Allow GitHub Documentation Screenshots
+!Screenshot/
+!Screenshot/**
 

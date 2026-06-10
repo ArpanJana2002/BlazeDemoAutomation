@@ -14,21 +14,27 @@ public class BaseTest {
 
     @BeforeMethod
     public void setup() {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--disable-gpu");
-        
-        driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
-        driver.get(ConfigReader.get("baseUrl"));
-    }
+    // Initialize Chrome options
+    ChromeOptions options = new ChromeOptions();
+    options.setBinary("/usr/bin/chromium-browser"); // Use the CI environment path
+    options.addArguments("--start-maximized");
+    options.addArguments("--disable-blink-features=AutomationControlled");
+    options.addArguments("--no-sandbox");
+    options.addArguments("--disable-dev-shm-usage");
+    
+    // Initialize WebDriver
+    WebDriverManager.chromedriver().setup();
+    driver = new ChromeDriver(options);
+    
+    // Navigate to base URL
+    driver.navigate().to(ConfigReader.get("baseURL"));
+}
 
     @AfterMethod
-    public void teardown() {
+    public void tearDown() {
         if (driver != null) {
             driver.quit();
         }
     }
+
 }

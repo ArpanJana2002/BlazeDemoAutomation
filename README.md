@@ -32,6 +32,8 @@ The framework follows industry-standard automation practices including Page Obje
 ```text
 BlazeDemoAutomation
 │
+├── Jenkinsfile
+│
 ├── src/main/java
 │
 │   ├── base
@@ -73,7 +75,9 @@ BlazeDemoAutomation
 ├── reports
 ├── screenshots
 ├── testng.xml
-└── pom.xml
+├── pom.xml
+├── README.md
+└── .gitignore
 ```
 
 ---

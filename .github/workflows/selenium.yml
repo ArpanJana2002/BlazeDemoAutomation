@@ -27,5 +27,5 @@ jobs:
         with:
           name: Test-Reports
           path: |
-            reports/
-            target/surefire-reports/
+            reports/**
+            target/surefire-reports/**

@@ -6,26 +6,24 @@ import org.testng.annotations.BeforeMethod;
 
 import com.blazedemo.utils.ConfigReader;
 import com.blazedemo.utils.DriverFactory;
+protected WebDriver driver;
 
-public class BaseTest {
+@BeforeTest
+public void setup() {
+    ChromeOptions options = new ChromeOptions();
+    options.addArguments("--headless");
+    options.addArguments("--no-sandbox");
+    options.addArguments("--disable-dev-shm-usage");
+    options.addArguments("--disable-gpu");
+    
+    driver = new ChromeDriver(options);
+    driver.manage().window().maximize();
+    driver.get(ConfigReader.get("baseUrl"));
+}
 
-	protected WebDriver driver;
-
-	@BeforeMethod
-	public void setup() {
-
-		driver = DriverFactory.getDriver();
-
-		driver.get(ConfigReader.get("url"));
-	}
-
-	@AfterMethod
-	public void tearDown() {
-
-		if (driver != null) {
-
-			driver.quit();
-		}
-	}
-
+@AfterTest
+public void teardown() {
+    if (driver != null) {
+        driver.quit();
+    }
 }

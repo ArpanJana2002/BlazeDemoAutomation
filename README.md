@@ -222,6 +222,34 @@ Open the generated HTML file in any browser to view execution details.
 
 ---
 
+# Jenkins Setup
+
+This project uses Jenkins to automate test execution.
+
+## Workflow
+
+GitHub → Jenkins → Maven Build → TestNG Execution → Extent Report → Email Notification
+
+## Build Command
+
+```bash
+mvn clean test
+```
+
+## Plugins Used
+
+* Git
+* Maven Integration
+* HTML Publisher
+* Email Extension
+
+## Outcome
+
+* Automated Selenium Test Execution
+* Extent Report Generation
+* Build Status Email Notifications
+
+
 ## Design Patterns Used
 
 ### Page Object Model (POM)

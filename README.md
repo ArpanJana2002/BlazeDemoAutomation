@@ -1,5 +1,5 @@
 # BlazeDemo Automation Framework
-
+[![BlazeDemo Automation](https://github.com/ArpanJana2002/BlazeDemoAutomation/actions/workflows/selenium.yml/badge.svg)](https://github.com/ArpanJana2002/BlazeDemoAutomation/actions/workflows/selenium.yml)
 ## Overview
 
 This project is an end-to-end Selenium WebDriver automation framework developed to automate the flight booking workflow on the BlazeDemo Travel Application.

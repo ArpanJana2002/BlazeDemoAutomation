@@ -34,20 +34,17 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     if: always()
+    permissions:
+      contents: write
+    
     steps:
       - name: Download Reports
         uses: actions/download-artifact@v4
         with:
           name: Test-Reports
-          path: ./
-
-      - name: Display Structure of Downloaded Files
-        run: ls -R
+          path: reports
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: actions/deploy-pages@v4
         with:
-          branch: gh-pages
-          folder: Test-Reports/reports
-          target-folder: reports
-          clean: false
+          path: reports

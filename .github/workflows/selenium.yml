@@ -39,11 +39,15 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: Test-Reports
+          path: ./
+
+      - name: Display Structure of Downloaded Files
+        run: ls -R
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: reports
+          folder: Test-Reports/reports
           target-folder: reports
           clean: false

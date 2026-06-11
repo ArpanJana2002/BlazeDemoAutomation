@@ -42,9 +42,22 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: Test-Reports
-          path: reports
+
+      - name: Show Folder Structure
+        run: |
+          echo "=== Current Directory ==="
+          pwd
+          echo "=== All Files ==="
+          ls -R
+          echo "=== Check if reports exists ==="
+          ls -la reports/ 2>/dev/null || echo "reports folder NOT found"
+          echo "=== Check Test-Reports ==="
+          ls -la Test-Reports/ 2>/dev/null || echo "Test-Reports folder NOT found"
 
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          path: reports
+          branch: gh-pages
+          folder: .
+          target-folder: reports
+          clean: false

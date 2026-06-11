@@ -29,3 +29,21 @@ jobs:
           path: |
             reports/**
             target/surefire-reports/**
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Download Reports
+        uses: actions/download-artifact@v4
+        with:
+          name: Test-Reports
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: reports
+          target-folder: reports
+          clean: false

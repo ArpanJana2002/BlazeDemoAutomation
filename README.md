@@ -212,19 +212,14 @@ Passes: 1
 Failures: 0
 ```
 
----
+##  Test Reports
 
-## Reports
+The Extent Report is automatically generated after each test run and published via GitHub Pages.
 
-Extent Report is generated under:
+[![Test Report](https://img.shields.io/badge/Test%20Report-View%20Live-brightgreen?style=for-the-badge&logo=github)](https://ArpanJana2002.github.io/BlazeDemoAutomation/AutomationReport.html)
 
-```text
-reports/AutomationReport.html
-```
-
-Open the generated HTML file in any browser to view execution details.
-
----
+> **Local path:** `reports/AutomationReport.html`  
+> Open this file in any browser to view detailed execution results including pass/fail status, screenshots, and logs.
 
 # Jenkins Setup
 

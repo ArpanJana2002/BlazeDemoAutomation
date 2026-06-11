@@ -18,7 +18,8 @@ target/
 *.log
 
 # Reports
-reports/
+reports/*
+!reports/AutomationReport.html
 
 # Screenshots
 screenshots/

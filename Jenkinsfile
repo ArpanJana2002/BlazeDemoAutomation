@@ -2,40 +2,56 @@ pipeline {
     agent any
 
     tools {
-        jdk 'jdk-25.0.3'
+        maven 'Maven3'
+        jdk 'JDK21'
     }
 
     stages {
-
         stage('Checkout') {
             steps {
                 checkout scm
             }
         }
 
-        stage('Verify Environment') {
-            steps {
-                bat 'java -version'
-                bat '"C:\\Program Files\\Apache\\apache-maven-3.9.16\\bin\\mvn.cmd" -version'
-            }
-        }
-
         stage('Build & Test') {
             steps {
-                bat '"C:\\Program Files\\Apache\\apache-maven-3.9.16\\bin\\mvn.cmd" clean test -Dheadless=true'
+                bat 'mvn clean test'
             }
         }
     }
 
     post {
+        success {
+            emailext(
+                subject: "SUCCESS : BlazeDemo Automation Build #${BUILD_NUMBER}",
+                body: """
+                    Build Successful
+
+                    Project: BlazeDemoAutomation
+                    Build Number: ${BUILD_NUMBER}
+
+                    Selenium Test Execution Completed Successfully.
+                """,
+                to: "your-email@gmail.com"
+            )
+        }
+
+        failure {
+            emailext(
+                subject: "FAILED : BlazeDemo Automation Build #${BUILD_NUMBER}",
+                body: """
+                    Build Failed
+
+                    Project: BlazeDemoAutomation
+                    Build Number: ${BUILD_NUMBER}
+
+                    Please check Jenkins Console Output.
+                """,
+                to: "your-email@gmail.com"
+            )
+        }
 
         always {
-
-            archiveArtifacts(
-                artifacts: 'reports/**, test-output/**',
-                allowEmptyArchive: true
-            )
-
             publishHTML([
                 allowMissing: true,
                 alwaysLinkToLastBuild: true,
@@ -44,14 +60,6 @@ pipeline {
                 reportFiles: 'AutomationReport.html',
                 reportName: 'Extent Report'
             ])
-        }
-
-        success {
-            echo 'BlazeDemo Automation Execution Successful'
-        }
-
-        failure {
-            echo 'BlazeDemo Automation Execution Failed'
         }
     }
 }
